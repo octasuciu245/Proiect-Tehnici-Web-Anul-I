@@ -1,0 +1,12 @@
+{
+  "utilizatori": [
+    {
+      "user": "admin",
+      "parola": "viena2025"
+    },
+    {
+      "user": "student",
+      "parola": "proiect"
+    }
+  ]
+}

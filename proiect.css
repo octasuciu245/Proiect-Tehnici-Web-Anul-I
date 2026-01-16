@@ -1,0 +1,402 @@
+:root{
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --muted: #586271;
+  --text: #0f1724;
+  --accent: #2b8aef;
+  --accent-2: #7b61ff;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --container: 1120px;
+  --shadow-sm: 0 6px 18px rgba(15,23,36,0.06);
+  --shadow-lg: 0 18px 40px rgba(15,23,36,0.12);
+  --gap: 1.1rem;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg), #eef3fb 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+  font-size:16px;
+}
+
+.container{
+  width:90%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:2.2rem 0;
+}
+
+header{
+  position:relative;
+}
+
+.navbar{
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  backdrop-filter: blur(6px);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  width:90%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:.9rem 0;
+}
+
+.brand .site-title{
+  margin:0;
+  font-size:1.35rem;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:0.6px;
+}
+
+#primary-nav{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:0.6rem;
+  align-items:center;
+}
+
+#primary-nav > li{
+  position:relative;
+}
+
+#primary-nav a{
+  display:inline-block;
+  padding:0.5rem 0.75rem;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  border-radius:10px;
+}
+
+#primary-nav a:hover,
+#primary-nav a:focus{
+  color:var(--text);
+  background: rgba(43,138,239,0.07);
+  transform: translateY(-2px);
+}
+
+.has-dropdown > .dropbtn{
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:0.5rem 0.75rem;
+  font-weight:600;
+  color:var(--muted);
+  border-radius:10px;
+}
+.has-dropdown:focus-within > .dropbtn,
+.has-dropdown:hover > .dropbtn{
+  color:var(--text);
+  background: rgba(43,138,239,0.07);
+}
+
+.dropdown{
+  position:absolute;
+  right:0;
+  top:calc(100% + 10px);
+  min-width:180px;
+  background:var(--surface);
+  border-radius:12px;
+  padding:0.5rem;
+  box-shadow:var(--shadow-lg);
+  list-style:none;
+  margin:0;
+  opacity:0;
+  transform: translateY(-6px) scale(.98);
+  pointer-events:none;
+  transition:
+    opacity .22s ease .02s,
+    transform .28s cubic-bezier(.2,.9,.3,1) .02s;
+  z-index:60;
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown{
+  opacity:1;
+  transform: translateY(0) scale(1);
+  pointer-events:auto;
+}
+
+.dropdown li{ margin:0 }
+.dropdown a{
+  display:block;
+  padding:0.55rem 0.6rem;
+  color:var(--muted);
+  text-decoration:none;
+  border-radius:8px;
+}
+.dropdown a:hover{ background: rgba(43,138,239,0.06); color:var(--text) }
+
+.hero{
+  height:62vh;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom-left-radius:20px;
+  border-bottom-right-radius:20px;
+  margin-top:64px; 
+  background-image: linear-gradient(135deg, rgba(43,138,239,0.15), rgba(123,97,255,0.08)), url('poza-logo.jpg');
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+
+.hero-content{
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  padding:2.1rem;
+  border-radius:12px;
+  max-width:920px;
+  width:95%;
+  box-shadow: var(--shadow-lg);
+  text-align:left;
+}
+
+.hero-title{
+  margin:0 0 .25rem;
+  font-size:clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing:0.4px;
+  font-weight:800;
+  text-shadow: 0 6px 20px rgba(11,23,45,0.35);
+}
+.hero-subtitle{
+  margin:0 0 .9rem;
+  color:rgba(255,255,255,0.92);
+  font-weight:500;
+}
+
+.hero-content:before{
+  content: "Vienna · City Guide";
+  position:absolute;
+  left:2.2rem;
+  font-size:0.86rem;
+  color:var(--muted);
+  transform:rotate(-90deg);
+  letter-spacing:2px;
+  display:none;
+}
+
+
+.attractions .container{ padding-top:1rem; padding-bottom:2.2rem; }
+.attractions h2{ margin-top:0; font-size:1.6rem }
+.attractions .intro{ color:var(--muted); margin-bottom:1rem }
+
+.attractions-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:1.1rem;
+}
+
+.attraction-card{
+  background: linear-gradient(180deg, var(--surface), #fbfdff);
+  border-radius:var(--radius);
+  padding:1.1rem;
+  box-shadow:var(--shadow-sm);
+  transition:
+    transform .28s cubic-bezier(.2,.9,.3,1),
+    box-shadow .32s ease,
+    border-color .5s ease;
+  border: 1px solid rgba(11,23,45,0.03);
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  min-height:220px;
+  position:relative;
+  overflow:hidden;
+}
+
+.attraction-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 24px 50px rgba(11,23,45,0.12);
+  border-color: rgba(43,138,239,0.12);
+}
+.attraction-card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+
+.attractions-grid .attraction-title{
+  color:var(--accent-2);
+}
+
+.attraction-title{ margin:0; font-size:1.05rem; font-weight:700 }
+.attraction-media figcaption{ color:var(--muted); font-size:0.92rem; margin-top:0.5rem }
+
+.food-list{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:1rem;
+  list-style:none;
+  padding:0;
+}
+.food-item{
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:12px;
+  padding:1rem;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  gap:0.9rem;
+  align-items:center;
+}
+.food-item img{
+  width:110px;
+  height:80px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.section h2{ margin-top:0; font-size:1.35rem; }
+.transport-list{ color:var(--muted); padding-left:1rem }
+.map img{ width:100%; border-radius:12px; box-shadow:var(--shadow-sm) }
+
+.site-footer{
+  padding:1.6rem 0;
+  background:transparent;
+  color:var(--muted);
+  border-top:1px solid rgba(11,23,45,0.04);
+}
+
+@media (max-width:1000px){
+  .attractions-grid{ grid-template-columns:repeat(2,1fr) }
+  .food-list{ grid-template-columns:1fr }
+  .nav-inner{ padding:0.6rem 0; }
+  .hero{ height:56vh }
+}
+
+@media (max-width:680px){
+  .nav-inner{ gap:.6rem; }
+  #primary-nav{ display:none } 
+  .hero{ min-height:360px; margin-top:56px }
+  .hero-content{ padding:1rem; text-align:center }
+  .attractions-grid{ grid-template-columns:1fr }
+  .brand .site-title{ font-size:1.05rem }
+}
+
+#map img{ border: 2px solid rgba(11,23,45,0.04) }
+.container > h2{ margin-bottom:.6rem }
+
+.food-item img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+
+  transition:
+    transform 0.45s cubic-bezier(.22, .61, .36, 1),
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+.food-item:hover img {
+  transform: scale(2.5) rotate(2deg);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.20);
+  filter: brightness(1.12) saturate(1.08);
+}
+
+.food-item img {
+  animation: foodBreath 8s ease-in-out infinite;
+}
+
+@keyframes foodBreath {
+  0%   { transform: scale(1);        filter: brightness(1); }
+  40%  { transform: scale(1.03);     filter: brightness(1.03); }
+  70%  { transform: scale(0.995);    filter: brightness(0.98); }
+  100% { transform: scale(1);        filter: brightness(1); }
+}
+
+.mozart-photo{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 1.6rem auto;
+  position: relative;
+  cursor: pointer;
+  transition:
+    transform 0.45s cubic-bezier(.2,.9,.3,1),
+    box-shadow 0.45s ease;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+  border: 2px solid rgba(255,255,255,0.04);
+  background: #000; 
+  will-change: transform;
+}
+
+.mozart-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s cubic-bezier(.2,.9,.3,1), filter 0.45s ease;
+  backface-visibility: hidden;
+}
+
+.mozart-photo:hover,
+.mozart-photo:focus{
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.18);
+}
+
+.mozart-photo:hover img,
+.mozart-photo:focus img{
+  transform: scale(1.18) rotate(0.6deg);
+  filter: brightness(1.06) saturate(1.06);
+}
+
+.mozart-photo:active img{
+  transform: scale(1.14) rotate(0.4deg);
+  filter: brightness(1.04);
+}
+
+@media (max-width:720px){
+  .mozart-photo{ width:140px; height:140px; }
+  .mozart-photo img{ transition-duration: .5s; }
+}
+
+#mozart_title{
+    text-align: center;
+}
+#_title{
+    text-align: center;
+}
+#learn_more{
+    text-align: center;
+}
+#map{
+    text-align: center;
+    margin:2rem 0;
+}
+#map iframe{
+    width: 75%;
+    height: 450px;
+    border: none;
+    border-radius: 1rem;
+}
+
+.dispare {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.8s ease; 
+    pointer-events: none;      
+}

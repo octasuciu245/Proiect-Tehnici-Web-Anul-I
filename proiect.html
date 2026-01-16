@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vienna — My project</title>
+
+  
+  <link rel="stylesheet" href="proiect.css" />
+ 
+</head>
+
+<body>
+ 
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Meniul principal">
+      <div class="nav-inner">
+        <a href="#hero" class="brand">
+          <h1 class="site-title">Vienna</h1>
+        </a>
+        <ul id="primary-nav" class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#attractions">Attractions</a></li>
+                <li><a href="#cuisine">Cuisine</a></li>
+            <li class="has-dropdown">
+                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">More ▾</button>
+                <ul class="dropdown" role="menu" aria-label="More menu">
+                    <li><a href="#istorie" role="menuitem">History</a></li>
+                    <li><a href="#transport" role="menuitem">Transport</a></li>
+                    <li><a href="#map" role="menuitem">Map</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h2 class="hero-title">Welcome to Vienna</h2>
+        <p class="hero-subtitle">City of Art, Culture and History</p>
+      </div>
+    </section>
+
+    <section id="login-section" class="container">
+      <div id="auth-container">
+        <input type="text" id="login-user" placeholder="Utilizator">
+        <input type="password" id="login-pass" placeholder="Parolă">
+        <button onclick="loginAJAX()">Login</button>
+      </div>
+      <div id="user-profile" style="display:none;">
+        <p>Bun venit, <span id="nume-logat"></span>!</p>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </section>
+
+    <section id="attractions" class="section attractions">
+      <div class="container">
+        <h2>Attractions</h2>
+        <p class="intro">Vienna offers a variety of tourist attractions that reflect the city’s culture, history, and innovation. Here are some of the best: <!-- TODO: pune textul tău aici --></p>
+        <ol>
+                                <li>
+                                    <a href="music.html">House of Music</a>
+                                </li>
+
+                                <li>
+                                    <a>St. Stephen's Cathedral (Stephansdom)</a>
+                                </li>
+
+                                <li>
+                                    <a>The Roller Coaster Restaurant</a>
+                                </li>
+
+                                <li>
+                                    <a>Hundertwasserhaus</a>
+                                </li>
+                            </ol>
+        <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="personalizeazaCarduri()" style="padding: 10px; background-color: green; color: white; border-radius: 8px; cursor: pointer;">
+        Click to Personalize Attraction Cards
+        </button>
+        </div>
+
+        
+        <div class="attractions-grid">
+          <article class="attraction-card" id="house-of-music">
+            <h3 class="attraction-title">House of Music</h3>
+            <figure class="attraction-media">
+              <img src="png" alt="House of Music — photo" />
+              <figcaption>The House of Music (Haus der Musik) is an interactive museum dedicated to sound and music. Visitors can explore the history of classical music, experience interactive simulations, and learn more about great composers such as Mozart, Beethoven, and Strauss.</figcaption>
+            </figure>
+            <p class="attraction-desc">
+            </p>
+
+          </article>
+
+          <article class="attraction-card" id="st-stephens">
+            <h3 class="attraction-title">St. Stephen's Cathedral (Stephansdom)</h3>
+            <figure class="attraction-media">
+              <img src="png (3)" alt="Stephansdom — photo" />
+              <figcaption>St. Stephen’s Cathedral (Stephansdom) is the symbol of Vienna and one of the most important historical monuments. Built in the Gothic style, the cathedral impresses with its spectacular architecture and offers a beautiful view of the city from its main tower.</figcaption>
+            </figure>
+            <p class="attraction-desc">              
+            </p>
+          </article>
+
+          <article class="attraction-card" id="roller-restaurant">
+            <h3 class="attraction-title">The Roller Coaster Restaurant</h3>
+            <figure class="attraction-media">
+              <img src="png (2)" alt="Roller Coaster Restaurant — photo" />
+              <figcaption>This innovative restaurant offers a unique experience: food is delivered to customers through a system of tracks and spirals similar to a roller coaster. The futuristic atmosphere and spectacular serving method make this place a popular attraction among tourists</figcaption>
+            </figure>
+            <p class="attraction-desc">
+            </p>
+          </article>
+
+          <article class="attraction-card" id="danube-island">
+            <h3 class="attraction-title">Hundertwasserhaus</h3>
+            <figure class="attraction-media">
+              <img src="png (1)" alt="Hundertwasserhaus — photo" />
+              <figcaption>Hundertwasserhaus is one of Vienna’s most unusual and colorful tourist attractions. The building was constructed between 1983 and 1985 and is the result of a collaboration between the Viennese artist Friedensreich Hundertwasser and architect Josef Krawina.</figcaption>
+            </figure>
+            <p class="attraction-desc">
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="text-align: center; margin-bottom: 20px;">
+    <button id="btn-adauga" onclick="adaugaAtractieNoua()" style="padding: 10px; background-color: green; color: white; border-radius: 8px; cursor: pointer;">
+        + Add Prater Park
+    </button>
+    </div>
+
+    <section id="cuisine" class="section food">
+      <div class="container">
+        <h2>Cuisine</h2>
+        <p class="intro">Viennese cuisine is famous for its delicious dishes and refined desserts.</p>
+
+        <ul class="food-list">
+          <li class="food-item">
+            <h3>Wiener Schnitzel</h3>
+            <p>A breaded veal schnitzel, fried until golden and crispy. It is one of Austria’s most iconic dishes.</p>
+            <img src="snitzel.jpg" alt="Wiener Schnitzel" />
+          </li>
+
+          <li class="food-item">
+            <h3>Apfelstrudel</h3>
+            <p>A traditional Viennese dessert made of thin dough filled with apples, raisins, cinnamon, and sugar, often served with vanilla sauce.</p>
+            <img src="mancare 2.jpg" alt="Apfelstrudel" />
+          </li>
+
+          <li class="food-item">
+            <h3>Sachertorte</h3>
+            <p>A famous Viennese cake consisting of a dense chocolate sponge filled with apricot jam and covered with a rich chocolate glaze.</p>
+            <img src="mancare 3.jpg" alt="Sachertorte" />
+          </li>
+
+          <li class="food-item">
+            <h3>Goulash</h3>
+            <p>A variation of goulash made with beef, onions, and paprika, offering a rich and flavorful taste</p>
+            <img src="mancare 4.jpg" alt="Goulash" />
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="istorie" class="section history">
+      <div class="container">
+        
+        <h2>History of the city</h2>
+        
+        <p>
+        <section id="_title">
+        <h3>Austro-Hungarian Empire</h3>
+        </section>
+          <p>For a long time, Vienna was the capital of the Austro-Hungarian Empire, one of the most influential empires in Europe. The imperial heritage is reflected in the city’s luxurious palaces, museums, and historical buildings.</p>
+        <section id="mozart_title">
+        <h3>Mozart</h3>
+        </section>
+        <p>Wolfgang Amadeus Mozart, one of the greatest composers in the world, spent much of his life in Vienna. The city keeps his memory alive through museums, concerts, and monuments dedicated to his work.</p>
+        
+        <div class="mozart-photo">
+            <img src="mozart.jpg" alt="Mozart">
+        </div>
+        <section id="learn_more">
+        <a href="https://youtu.be/LCfruEA3swg?si=09mpoqY4ya_Pn-Gs">Learn more about Mozart</a>
+        </section>
+        </a>
+    </p>
+      </div>
+    </section>
+
+    <section id="transport" class="section transport">
+      <div class="container">
+        <h2>Transport</h2>
+        <ul class="transport-list">
+          <li><strong>Metro (U-Bahn):</strong> The metro network (U-Bahn) is one of the fastest ways to travel through the city, covering the main tourist areas and districts.</li>
+          <li><strong>Trams:</strong> Trams are symbolic for the city and offer a picturesque way to explore Vienna, while being both practical and comfortable</li>
+          <li><strong>Vienna Pass Card:</strong> The Vienna Pass is a tourist card that offers free access to numerous attractions, public transport included, and discounts at various locations. It is ideal for visitors who want to explore as much as possible in a short time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="map" class="section map">
+      <div class="container">
+        <h2>Map</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d170130.38075893503!2d16.214833854948708!3d48.22034409580501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e5136ca9f%3A0xfdc2e58a51a25b46!2sViena%2C%20Austria!5e0!3m2!1sro!2sro!4v1763328908634!5m2!1sro!2sro" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p class="map-note"></p>
+      </div>
+    </section>
+
+
+
+  <section id="sugestii" class="section">
+  <div class="container">
+    <h2>Suggest an Attraction</h2>
+    <form id="formular-sugestii">
+      <div class="form-group">
+        <label for="nume-utilizator">Your Name:</label>
+        <input type="text" id="nume-utilizator" placeholder="Enter your name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="nume-atractie">Attraction Name:</label>
+        <input type="text" id="nume-atractie" name="nume" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pret-bilet">Estimated Ticket Price (€):</label>
+        <input type="number" id="pret-bilet" name="pret" min="0" required> 
+      </div>
+
+      <div class="form-group">
+        <label for="categorie">Category:</label>
+        <select id="categorie" name="categorie" required>
+          <option value="museum">Museum</option>
+          <option value="park">Park</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <p>Recommended for kids?</p>
+        <input type="radio" id="da" name="recomandat" value="da">
+        <label for="da">Yes</label>
+        <input type="radio" id="nu" name="recomandat" value="nu">
+        <label for="nu">No</label>
+      </div>
+
+      <div class="form-group">
+        <label for="descriere">Short Description:</label>
+        <textarea id="descriere" name="descriere" rows="3"></textarea>
+      </div>
+
+      <button type="submit" id="btn-trimite">Submit Suggestion</button>
+    </form>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 — [Suciu Octavian]. This site is an educational project.</p>
+    </div>
+    <script src="proiect.js"></script>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
